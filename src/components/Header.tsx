@@ -6,9 +6,9 @@ import { Container } from '@mui/system'
 export const Header = () => {
     return (
         <>
-            <AppBar sx={{ backgroundColor: '#654321' }} position='static'>
+            <AppBar sx={{ backgroundColor: '#111111', mb: 5 }} position='static'>
                 <Toolbar sx={{ margin: 'auto', alignItems: 'center' }}>
-                    <Typography variant='h4' sx={{ mr: 2 }}>
+                    <Typography variant='h4' sx={{ color: '#ffffff', mr: 2 }}>
                         BEER MARKET
                     </Typography>
                     <img src={beerSvg} alt="BEER" />
@@ -16,7 +16,7 @@ export const Header = () => {
             </AppBar >
             <Container>
                 <TextField
-                    color='secondary'
+                    color='warning'
                     fullWidth
                     variant='standard'
                     type='search'

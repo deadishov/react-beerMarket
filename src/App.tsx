@@ -6,7 +6,7 @@ import { Home } from './pages/Home';
 
 function App() {
   return (
-    <Box sx={{ backgroundColor: '#654321' }}>
+    <Box sx={{ backgroundColor: '#494D4e', pr: 2, pb: 10 }}>
       <Header />
       <Routes>
         <Route path='/' element={<Home />} />

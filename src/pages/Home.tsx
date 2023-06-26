@@ -20,8 +20,8 @@ export const Home: React.FC = ({ }) => {
         getBeers()
     }, [])
 
-    const beerCards = beers.map(item => <Beer {...item} />)
     const skeletons = [...new Array(4)].map((_, index) => <Skeleton key={index} />)
+    const beerCards = beers.map(item => <Beer key={item.id} {...item} />)
 
     return (
         <Grid sx={{ maxWidth: '100%', mt: 3, ml: 'auto' }} container rowSpacing={3} spacing={2}>

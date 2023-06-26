@@ -5,6 +5,10 @@ export type BeerType = {
     description: string,
     image_url: string,
     abv: number,
+    volume: {
+        value: number;
+        unit: string
+    }
     food_pairing: [
         string,
         string,

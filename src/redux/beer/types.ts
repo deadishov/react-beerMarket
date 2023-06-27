@@ -16,6 +16,10 @@ export type BeerType = {
     ],
 }
 
+export type fetchBeersParams = {
+    currentPage: string
+}
+
 export enum Status {
     LOADING = 'loading',
     SUCCESS = 'success',

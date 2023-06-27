@@ -8,7 +8,7 @@ const initialState: BeerSliceState = {
 }
 
 const beerSlice = createSlice({
-    name: 'cart',
+    name: 'beer',
     initialState,
     reducers: {
         setBeers(state, action: PayloadAction<BeerType[]>) {
@@ -16,7 +16,7 @@ const beerSlice = createSlice({
         }
     },
     extraReducers: (builder) => {
-        builder.addCase(fetchBeers.pending, (state, action) => {
+        builder.addCase(fetchBeers.pending, (state) => {
             state.status = Status.LOADING
             state.beers = []
         })
@@ -26,7 +26,7 @@ const beerSlice = createSlice({
             state.status = Status.SUCCESS
         })
 
-        builder.addCase(fetchBeers.rejected, (state, action) => {
+        builder.addCase(fetchBeers.rejected, (state) => {
             state.status = Status.ERROR
             state.beers = []
         })

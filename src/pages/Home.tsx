@@ -8,7 +8,6 @@ import { Beer } from '../components/Beer'
 import { BasicPagination } from '../components/Pagination'
 import { selectBeersData } from '../redux/beer/selectors'
 import { selectFilter } from '../redux/filter/selectors'
-import { setCurrentPage } from '../redux/filter/slice'
 
 
 export const Home: React.FC = ({ }) => {
@@ -23,6 +22,7 @@ export const Home: React.FC = ({ }) => {
 
     React.useEffect(() => {
         getBeers()
+        window.scrollTo({ top: 0 })
     }, [currentPage])
 
     const skeletons = [...new Array(4)].map((_, index) => <Skeleton key={index} />)

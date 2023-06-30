@@ -23,6 +23,7 @@ export const BeerDetails: React.FC = () => {
         }
 
         fetchBeerDetails()
+        window.scrollTo({ top: 0 })
     }, [])
 
 

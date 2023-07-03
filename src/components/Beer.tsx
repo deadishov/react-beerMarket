@@ -7,7 +7,7 @@ export const Beer: React.FC<BeerType> = ({ image_url, name, description, id }) =
     return (
         <Grid sx={{ pl: 0 }} item xs={2} md={3}>
             <Link style={{ textDecoration: 'none' }} to={`/beers/${id}`}>
-                <Card sx={{ cursor: 'pointer', m: 'auto', maxWidth: 340, height: 190, pl: '15px', pt: 5, pb: 5, backgroundColor: '#111111' }}>
+                <Card sx={{ cursor: 'pointer', m: 'auto', maxWidth: 340, pl: '15px', pt: 5, pb: 5, backgroundColor: '#111111' }}>
                     <Box sx={{ display: 'flex' }}>
                         <CardMedia
                             component='img'

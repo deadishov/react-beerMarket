@@ -1,0 +1,27 @@
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 500px;
+
+    .search-input {
+        border: 5px solid #ffa500;
+        border-radius: 30px;
+        padding: 0 20px 0 20px;
+        height: 50px;
+        width: 100%;
+        font-size: 18px;
+
+        &::placeholder {
+            font-size: 18px;
+        }
+    }
+
+    .close-img {
+        position: absolute;
+        right: 25px;
+        top: 17px;
+    }
+}

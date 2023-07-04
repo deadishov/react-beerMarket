@@ -7,11 +7,33 @@ import { useAppDispatch } from '../redux/store';
 import { setCurrentPage, setSearchValue } from '../redux/filter/slice';
 import { useSelector } from 'react-redux';
 import { selectFilter } from '../redux/filter/selectors';
+import debounce from 'lodash.debounce'
+import React from 'react';
 
 export const Header = () => {
     const dispatch = useAppDispatch()
     const location = useLocation()
+    const [value, setValue] = React.useState('')
     const { searchValue } = useSelector(selectFilter)
+    const inputRef = React.useRef<HTMLInputElement>(null)
+
+    const updateSearchValue = React.useCallback(
+        debounce((str: string) => {
+            dispatch(setSearchValue(str))
+        }, 500),
+        []
+    )
+
+    const onChangeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setValue(e.target.value)
+        updateSearchValue(e.target.value)
+    }
+
+    const cleaner = () => {
+        setValue('')
+        dispatch(setSearchValue(''))
+        inputRef.current?.focus()
+    }
 
 
     return (
@@ -27,8 +49,8 @@ export const Header = () => {
             {
                 location.pathname === '/' && <Container>
                     <div className='input-wrapper'>
-                        <input value={searchValue} onChange={(e) => dispatch(setSearchValue(e.target.value))} className='search-input' type="text" placeholder='Search' />
-                        {searchValue && <img onClick={() => dispatch(setSearchValue(''))} className='close-img' src={closeSvg} alt="closeImg" />}
+                        <input ref={inputRef} value={value} onChange={onChangeValue} className='search-input' type="text" placeholder='Search' />
+                        {searchValue && <img onClick={cleaner} className='close-img' src={closeSvg} alt="closeImg" />}
                     </div>
                 </Container>
             }

@@ -18,6 +18,7 @@ export type BeerType = {
 
 export type fetchBeersParams = {
     currentPage: string
+    searchValue: string
 }
 
 export enum Status {

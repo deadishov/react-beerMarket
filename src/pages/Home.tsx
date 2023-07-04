@@ -17,21 +17,16 @@ export const Home: React.FC = ({ }) => {
     const { currentPage, searchValue } = useSelector(selectFilter)
 
     const getBeers = async () => {
-        dispatch(fetchBeers({ currentPage: String(currentPage) }))
+        dispatch(fetchBeers({ currentPage: String(currentPage), searchValue: searchValue }))
     }
 
     React.useEffect(() => {
         getBeers()
         window.scrollTo({ top: 0 })
-    }, [currentPage])
+    }, [currentPage, searchValue])
 
     const skeletons = [...new Array(4)].map((_, index) => <Skeleton key={index} />)
-    const beerCards = beers.filter((obj) => {
-        if (obj.name.includes(searchValue) || obj.description.includes(searchValue) || obj.food_pairing.includes(searchValue)) {
-            return true
-        }
-        return false
-    }).map(item => <Beer key={item.id} {...item} />)
+    const beerCards = beers.map(item => <Beer key={item.id} {...item} />)
 
     return (
         <>
